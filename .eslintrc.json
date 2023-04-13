@@ -20,7 +20,7 @@
         "no-extra-parens": 0,
         "no-restricted-syntax": [0, "DebuggerStatement"],
         "no-debugger": "warn",
-        "linebreak-style": ["warning", "windows"],
+        "linebreak-style": ["warn", "windows"],
         "no-useless-concat": 0,
         "indent": 1,
         "eol-last": 0,
