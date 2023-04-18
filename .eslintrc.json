@@ -26,5 +26,9 @@
         "eol-last": 0,
         "prefer-template": 0,
         "semi": 1
-    }
+    },
+
+    "plugins": [
+        "react"
+    ]
 }
