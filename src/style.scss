@@ -1,11 +1,8 @@
 body, html {
-    display: flex;
     font-family: "andale mono", "lucida console", monospace;
     background: linear-gradient(to bottom, #2c3e50, #fd746c 70%);
     height: 100%;
     color: rgb(255, 244, 244);
-    justify-content: center;
-    align-items: center;
 }
 
 .logo {
