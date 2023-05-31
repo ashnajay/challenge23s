@@ -1,0 +1,24 @@
+body, html {
+    font-family: "andale mono", "lucida console", monospace;
+    background: linear-gradient(to bottom, #2c3e50, #fd746c 70%);
+    height: 100%;
+    color: rgb(255, 244, 244);
+}
+
+.logo {
+    background-image: url("./img/samiha-2.png");
+    width: 100px;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+:root {
+    text-size-adjust: 100%;
+}
+
+.active {
+    color: rgb(0, 157, 141);
+  }
+  
+  
