@@ -13,7 +13,6 @@ import '../style.scss';
 const App = () => {
   const [fetching, setFetching] = useState(true);
   const [eventInfo, setEventInfo] = useState([]);
-  const [selectedEvents, setSelectedEvents] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {

@@ -4,6 +4,7 @@
 /* eslint-disable react/no-array-index-key */
 
 import React, { useState, useEffect } from 'react';
+import dotenv from 'dotenv';
 import GoogleMapReact from 'google-map-react';
 import EventIcon from './eventIcon';
 import EventDetails from './eventDetails';
@@ -23,8 +24,6 @@ function tracker({
 }) {
   const [displayDetails, setDisplayDetails] = useState(null);
 
-  const { API_KEY } = process.env;
-
   const markers = eventInfo.map((event, index) => {
     if (disasters.has(event.categories[0].id)) {
       return (
@@ -43,7 +42,7 @@ function tracker({
     <div className="tracker-container">
       <div className="tracker">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: API_KEY }}
+          bootstrapURLKeys={{ key: 'INSERT_API_KEY' }}
           defaultCenter={center}
           defaultZoom={zoom}
         >
