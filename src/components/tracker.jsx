@@ -24,6 +24,8 @@ function tracker({
   let disasters = new Set();
   const [displayDetails, setDisplayDetails] = useState(null);
 
+  const { API_KEY } = process.env;
+
   useEffect(
     () => {
       disasters = new Set();
@@ -52,7 +54,7 @@ function tracker({
     <div className="tracker-container">
       <div className="tracker">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyBS-Yd-K151hY_FmL2JxbGPyRdm-0enAMo' }}
+          bootstrapURLKeys={{ key: API_KEY }}
           defaultCenter={center}
           defaultZoom={zoom}
         >
