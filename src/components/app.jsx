@@ -1,31 +1,38 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/no-extraneous-dependencies */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Tracker from './tracker';
+import Loading from './loading';
 import '../style.scss';
-import { BrowserRouter, Routes, Route, NavLink, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import Calendar from './calendar';
-// import NavBar from './navbar';
 
 const App = (props) => {
+  const [fetching, setFetching] = useState(true);
+  const [eventInfo, setEventInfo] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const res = await fetch('https://eonet.gsfc.nasa.gov/api/v3/events');
+      const { events } = await res.json();
+
+      setFetching(false);
+      setEventInfo(events);
+    };
+
+    fetchEvents();
+  }, []);
+
   return (
-    <BrowserRouter>
+    <>
+      <h1>Natural Event Tracker Powered by NASA and Google Maps</h1>
       <div>
-        {/* <NavBar />
-        <Error /> */}
-        <Routes>
-          <Route path="/" element={<Calendar />} />
-          {/* <Route path="/signin" element={<Login />} />
-          <Route path="/posts/:postID" element={<RequireAuth><Post /></RequireAuth>} />
-          <Route path="/posts/new" element={<RequireAuth> <NewPost /> </RequireAuth>} />
-          <Route path="*" element={<RequireAuth><div>post not found</div></RequireAuth>} /> */}
-        </Routes>
+        {fetching ? <Loading /> : <Tracker eventInfo={eventInfo} />}
       </div>
-    </BrowserRouter>
+    </>
   );
 };
 

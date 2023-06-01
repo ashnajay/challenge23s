@@ -1,5 +1,4 @@
 body, html {
-    font-family: "andale mono", "lucida console", monospace;
     background: black;
     height: 100%;
     color: rgb(255, 244, 244);
@@ -9,8 +8,41 @@ body, html {
     text-size-adjust: 100%;
 }
 
-.active {
-    color: rgb(0, 157, 141);
+.active
+  body {
+    margin: 0;
+    overflow: hidden;
   }
   
-
+  .tracker {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .event-icon {
+    font-size: 2rem;
+  }
+  
+  .event-details {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    width: 400px;
+    min-height: 100px;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  .event-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .event-details li {
+    padding: 5px 0;
+  }
+  
