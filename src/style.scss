@@ -1,7 +1,64 @@
+//import font
+@font-face {
+    font-family: "Groupe";
+    src: url('assets/Groupe-Medium.otf');
+}
+
 body, html {
-    background: black;
+    background: url('assets/lava.gif');
+    background-size: cover;
     height: 100%;
-    color: rgb(255, 244, 244);
+    color: white;
+    font-family: 'Groupe';
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1.2rem;
+    margin-top: 2%;;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.banner {
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;  
+    white-space: nowrap;
+    padding-right: 100%;
+    box-sizing: content-box;
+
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: horizontalBanner;
+    animation-duration: 15s;
+}
+
+.banner-container {
+    width: 100%;
+    overflow: hidden;
+    height: 3rem;
+    background-color: transparent;
+    padding-left: 100%;
+    box-sizing: content-box;
+}
+
+@keyframes horizontalBanner {
+    0% {
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+    color:rgb(255, 244, 244);
 }
 
 :root {
@@ -13,18 +70,23 @@ body, html {
     margin: 0;
     overflow: hidden;
   }
+
+.tracker-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   
-  .tracker {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-  }
-  
-  .event-icon {
+.tracker {
+    width: 90vw;
+    height: 90vh;
+}
+
+.event-icon {
     font-size: 2rem;
-  }
-  
-  .event-details {
+}
+
+.event-details {
     position: absolute;
     top: 100px;
     right: 100px;
@@ -35,14 +97,31 @@ body, html {
     border-radius: 10px;
     font-size: 20px;
     color: #fff;
-  }
-  
-  .event-details ul {
+}
+
+.event-details ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  .event-details li {
+}
+
+.event-details li {
     padding: 5px 0;
-  }
-  
+}
+
+.filter-container {
+    width: 35%; 
+    margin-bottom: 5%;
+    margin-left: 39%;
+    background: transparent;
+}
+
+// input {
+//     color: white;
+//     // width: 50%;
+//     // padding: 12px 20px;
+// }
+
+.filter-placeholder {
+    color: white
+}
+

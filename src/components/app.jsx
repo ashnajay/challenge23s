@@ -9,10 +9,12 @@ import React, { useState, useEffect } from 'react';
 import Tracker from './tracker';
 import Loading from './loading';
 import '../style.scss';
+import Filter from './filter';
 
-const App = (props) => {
+const App = () => {
   const [fetching, setFetching] = useState(true);
   const [eventInfo, setEventInfo] = useState([]);
+  const [selectedEvents, setSelectedEvents] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -28,9 +30,15 @@ const App = (props) => {
 
   return (
     <>
-      <h1>Natural Event Tracker Powered by NASA and Google Maps</h1>
+      <h1>Natural Event Tracker</h1>
+      <div className="banner-container">
+        <div className="banner">
+          <h2>POWERED BY NASA EONET AND GOOGLE MAPS</h2>
+        </div>
+      </div>
+      <Filter placeholder="Select..." events={selectedEvents} setEvents={setSelectedEvents} />
       <div>
-        {fetching ? <Loading /> : <Tracker eventInfo={eventInfo} />}
+        {fetching ? <Loading /> : <Tracker eventInfo={eventInfo} selectedEvents={selectedEvents} />}
       </div>
     </>
   );

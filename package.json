@@ -31,12 +31,15 @@
     "vite-plugin-eslint": "^1.8.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@iconify/icons-bi": "^1.2.16",
     "@iconify/icons-mdi": "^1.2.46",
     "@iconify/icons-noto": "^1.2.10",
     "@iconify/icons-noto-v1": "^1.2.5",
-    "@iconify/react": "^4.1.0",
     "@iconify/icons-openmoji": "^1.2.24",
+    "@iconify/react": "^4.1.0",
+    "@mui/material": "^5.13.3",
     "@reduxjs/toolkit": "^1.9.5",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.14",
@@ -47,6 +50,7 @@
     "react": "^18.2.0",
     "react-calendar": "^4.2.1",
     "react-dom": "^18.2.0",
+    "react-filtered-multiselect": "^0.5.1",
     "react-redux": "^8.0.5",
     "react-router": "^6.10.0",
     "react-router-dom": "^6.10.0"
