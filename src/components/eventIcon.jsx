@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable linebreak-style */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
