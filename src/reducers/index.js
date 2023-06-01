@@ -1,12 +1,10 @@
 // the starting point for your redux store
 // this defines what your store state will look like
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { combineReducers } from '@reduxjs/toolkit';
+// import { combineReducers } from '@reduxjs/toolkit';
+// ;
 
-import CountReducer from './count-reducer';
+// const rootReducer = combineReducers({
+// });
 
-const rootReducer = combineReducers({
-  count: CountReducer,
-});
-
-export default rootReducer;
+// export default rootReducer;
