@@ -9,32 +9,21 @@ import EventIcon from './eventIcon';
 import EventDetails from './eventDetails';
 import '../style.scss';
 
-// const disasters = new Set();
-// disasters.add('earthquakes');
-// disasters.add('floods');
-// disasters.add('landslides');
-// disasters.add('volcanoes');
-// disasters.add('wildfires');
-// disasters.add('severeStorms');
-// disasters.add('seaLakeIce');
+const disasters = new Set();
+disasters.add('earthquakes');
+disasters.add('floods');
+disasters.add('landslides');
+disasters.add('volcanoes');
+disasters.add('wildfires');
+disasters.add('severeStorms');
+disasters.add('seaLakeIce');
 
 function tracker({
-  eventInfo, center, zoom, selectedEvents,
+  eventInfo, center, zoom,
 }) {
-  let disasters = new Set();
   const [displayDetails, setDisplayDetails] = useState(null);
 
   const { API_KEY } = process.env;
-
-  useEffect(
-    () => {
-      disasters = new Set();
-      selectedEvents.forEach((naturalevent) => {
-        disasters.add(naturalevent);
-      });
-    },
-    [],
-  );
 
   const markers = eventInfo.map((event, index) => {
     if (disasters.has(event.categories[0].id)) {

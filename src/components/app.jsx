@@ -9,7 +9,6 @@ import React, { useState, useEffect } from 'react';
 import Tracker from './tracker';
 import Loading from './loading';
 import '../style.scss';
-import Filter from './filter';
 
 const App = () => {
   const [fetching, setFetching] = useState(true);
@@ -36,9 +35,8 @@ const App = () => {
           <h2>POWERED BY NASA EONET AND GOOGLE MAPS</h2>
         </div>
       </div>
-      <Filter placeholder="Select..." events={selectedEvents} setEvents={setSelectedEvents} />
       <div>
-        {fetching ? <Loading /> : <Tracker eventInfo={eventInfo} selectedEvents={selectedEvents} />}
+        {fetching ? <Loading /> : <Tracker eventInfo={eventInfo} />}
       </div>
     </>
   );
