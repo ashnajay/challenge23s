@@ -1,16 +1,8 @@
 body, html {
     font-family: "andale mono", "lucida console", monospace;
-    background: linear-gradient(to bottom, #2c3e50, #fd746c 70%);
+    background: black;
     height: 100%;
     color: rgb(255, 244, 244);
-}
-
-.logo {
-    background-image: url("./img/samiha-2.png");
-    width: 100px;
-    height: 100px;
-    background-repeat: no-repeat;
-    background-size: contain;
 }
 
 :root {
@@ -21,4 +13,53 @@ body, html {
     color: rgb(0, 157, 141);
   }
   
-  
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: rgb(183, 255, 248);
+    margin-bottom: 2rem;
+}
+
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.react-calendar__navigation {
+    margin-bottom: 3rem;
+}
+
+.react-calendar__navigation__arrow {
+    font-size: 1.2em;
+}
+
+.react-calendar__navigation__label {
+    font-size: 1.2em;
+}
+
+.react-calendar__navigation button {
+    background: rgb(0, 157, 141);
+    color: rgb(255, 244, 244);
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+.react-calendar__navigation button:enabled:hover {
+    background: rgb(204, 216, 215);
+    color: rgb(33, 237, 207);
+}
