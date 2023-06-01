@@ -18,23 +18,90 @@ import '../style.scss';
 // disasters.add('severeStorms');
 // disasters.add('seaLakeIce');
 
-function tracker({
-  eventInfo, center, zoom, selectedEvents,
-}) {
-  let disasters = new Set();
+function tracker(props) {
+  const disasters = new Set();
   const [displayDetails, setDisplayDetails] = useState(null);
 
   useEffect(
     () => {
-      disasters = new Set();
-      selectedEvents.forEach((naturalevent) => {
-        disasters.add(naturalevent);
-      });
+      if (props.earthquakes) {
+        disasters.add('earthquakes');
+      } else {
+        disasters.delete('earthquakes');
+      }
     },
-    [],
+    [props.earthquakes],
   );
 
-  const markers = eventInfo.map((event, index) => {
+  useEffect(
+    () => {
+      if (props.floods) {
+        disasters.add('floods');
+      } else {
+        disasters.delete('floods');
+      }
+    },
+    [props.floods],
+  );
+
+  useEffect(
+    () => {
+      if (props.landslides) {
+        disasters.add('landslides');
+      } else {
+        disasters.delete('landslides');
+      }
+    },
+    [props.landslides],
+  );
+
+  useEffect(
+    () => {
+      if (props.volcanoes) {
+        disasters.add('volcanoes');
+      } else {
+        disasters.delete('volcanoes');
+      }
+    },
+    [props.volcanoes],
+  );
+
+  useEffect(
+    () => {
+      if (props.wildfires) {
+        disasters.add('wildfires');
+      } else {
+        disasters.delete('wildfires');
+      }
+    },
+    [props.wildfires],
+  );
+
+  useEffect(
+    () => {
+      console.log(props.severeStorms);
+      if (props.severeStorms) {
+        disasters.add('severeStorms');
+      } else {
+        disasters.delete('severeStorms');
+      }
+    },
+    [props.severeStorms],
+  );
+
+  useEffect(
+    () => {
+      console.log(props.seaLakeIce);
+      if (props.seaLakeIce) {
+        disasters.add('seaLakeIce');
+      } else {
+        disasters.delete('seaLakeIce');
+      }
+    },
+    [props.seaLakeIce],
+  );
+
+  const markers = props.eventInfo.map((event, index) => {
     if (disasters.has(event.categories[0].id)) {
       return (
         <EventIcon key={index}
@@ -52,9 +119,9 @@ function tracker({
     <div className="tracker-container">
       <div className="tracker">
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyBS-Yd-K151hY_FmL2JxbGPyRdm-0enAMo' }}
-          defaultCenter={center}
-          defaultZoom={zoom}
+          bootstrapURLKeys={{ key: 'API-KEY' }}
+          defaultCenter={props.center}
+          defaultZoom={props.zoom}
         >
           {markers}
         </GoogleMapReact>

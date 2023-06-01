@@ -1,32 +1,36 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable prefer-destructuring */
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../style.scss';
 // import TextField from '@mui/material/TextField';
 // import Autocomplete from '@mui/material/Autocomplete';
 import FilteredMultiSelect from 'react-filtered-multiselect';
 
-const disasters = new Set();
-disasters.add('earthquakes');
-disasters.add('floods');
-disasters.add('landslides');
-disasters.add('volcanoes');
-disasters.add('wildfires');
-disasters.add('severeStorms');
-disasters.add('seaLakeIce');
+function Filter(props) {
+  let selectedTypes = props.eventTypes;
+  const updateEventTypes = props.updateEventTypes;
 
-function Filter({ events, setEvents }) {
-  setEvents(['earthquakes', 'floods', 'landslides', 'volcanoes', 'wildfires', 'severeStorms', 'seaLakeIce']);
+  const options = [
+    { value: 'earthquakes', text: 'Earthquakes' },
+    { value: 'floods', text: 'Floods' },
+    { value: 'landslides', text: 'Landslides' },
+    { value: 'volcanoes', text: 'Volcanoes' },
+    { value: 'wildfires', text: 'Wildfires' },
+    { value: 'severeStorms', text: 'Severe Storms' },
+    { value: 'seaLakeIce', text: 'Sea Lake Ice' },
+  ];
 
   const onSelect = (selectedEvents) => {
-    console.log(events);
-    setEvents(selectedEvents);
-  };
-
-  const deselect = (index) => {
-    const selectedEvents = events.selectedEvents.slice();
-    selectedEvents.splice(index, 1);
-    setEvents({ selectedEvents });
+    selectedTypes = selectedEvents;
+    console.log('selected is ', selectedEvents);
+    const eventTypes = [...props.eventTypes];
+    eventTypes.splice(0, eventTypes.length, selectedEvents);
+    console.log('eventTypes is ', eventTypes);
+    updateEventTypes(eventTypes);
+    console.log('updated event types');
+    console.log('updated event types');
   };
 
   return (
@@ -34,22 +38,9 @@ function Filter({ events, setEvents }) {
       <FilteredMultiSelect
         className="filter-container"
         onChange={onSelect}
-        options={disasters}
-        selectedOptions={events}
+        options={options}
+        selectedOptions={selectedTypes}
       />
-      {events.length === 0 && <p className="filter-placeholder">Select...</p>}
-      {events.length > 0 && (
-      <ul>
-        {events.map((event, i) => (
-          <li key={event}>
-            {`${event}`}
-            <button type="button" onClick={() => deselect(i)}>
-              &times;
-            </button>
-          </li>
-        ))}
-      </ul>
-      )}
     </div>
   );
 }

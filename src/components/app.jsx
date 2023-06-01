@@ -14,7 +14,8 @@ import Filter from './filter';
 const App = () => {
   const [fetching, setFetching] = useState(true);
   const [eventInfo, setEventInfo] = useState([]);
-  const [selectedEvents, setSelectedEvents] = useState([]);
+  const [eventTypes, setEventTypes] = useState([]);
+  console.log('eventTypes is ', eventTypes);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -28,6 +29,11 @@ const App = () => {
     fetchEvents();
   }, []);
 
+  const updateEventTypes = (types) => {
+    console.log(types);
+    setEventTypes([...types]);
+  };
+
   return (
     <>
       <h1>Natural Event Tracker</h1>
@@ -36,9 +42,21 @@ const App = () => {
           <h2>POWERED BY NASA EONET AND GOOGLE MAPS</h2>
         </div>
       </div>
-      <Filter placeholder="Select..." events={selectedEvents} setEvents={setSelectedEvents} />
+      <Filter placeholder="Select..." eventTypes={eventTypes} updateEventTypes={updateEventTypes} />
       <div>
-        {fetching ? <Loading /> : <Tracker eventInfo={eventInfo} selectedEvents={selectedEvents} />}
+        {fetching ? <Loading /> : (
+          <Tracker
+            key={eventTypes}
+            eventInfo={eventInfo}
+            earthquakes={eventTypes.includes('earthquakes')}
+            floods={eventTypes.includes('floods')}
+            landslides={eventTypes.includes('landslides')}
+            volcanoes={eventTypes.includes('volcanoes')}
+            wildfires={eventTypes.includes('wildfires')}
+            severeStorms={eventTypes.includes('severeStorms')}
+            seaLakeIce={eventTypes.includes('seaLakeIce')}
+          />
+        )}
       </div>
     </>
   );
